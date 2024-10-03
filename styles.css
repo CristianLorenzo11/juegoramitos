@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h4{
+    text-align: center;
+    color: white;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-image: url('Designer\ \(80\).jpeg'); /* Cambia esto a la ruta de tu imagen */
+    background-size: cover; /* Asegúrate de que la imagen cubra todo el fondo */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* Evitar que la imagen se repita */
+}
+
+
+.info {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px; /* Cuadrado perfecto */
+    
+}
+.luxgym-image {
+    width: 100%; /* Ocupa todo el ancho del cuadro */
+    height: 100%; /* Ocupa toda la altura del cuadro */
+   
+}
+
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+    grid-template-rows: repeat(4, 1fr);    /* 4 filas */
+    gap: 10px; /* Espacio entre los cuadritos */
+    width: 100%;
+    height: 100%;
+}
+.corazon {
+    padding-top: 10px;
+    width: 40px; /* Ajusta el tamaño del corazón */
+    height: auto; /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones para transformaciones y sombras */
+}
+
+.corazon:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+    box-shadow: 0px 4px 20px rgba(255, 0, 0, 0.5); /* Sombra más intensa al pasar el mouse */
+}
+.Lux{
+    width: 100px;
+    border-radius: 50%;
+}
+
+.box {
+    background-color: #ffd622;
+    color: #fafafa; /* Color rosado para la "X" */   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.53); /* Sombra (ajusté el valor para que sea más sutil) */
+    /* Aplicar drop shadow rosado con filter */
+
+}
+
+
+
+
+/* Efecto al pasar el mouse sobre el cuadro */
+.box:hover {
+    background-color: #fc2a05;
+    transform: translateY(-5px); /* Eleva el cuadro ligeramente */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Aumenta la sombra al pasar el mouse */
+}
+
+
+
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Estilos del modal */
+.modal {
+    
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgba(252, 255, 80, 0.8); /* Celeste con transparencia */
+    padding: 80px; /* Aumentar el padding para que sea más grande */
+    border-radius: 15px; /* Bordes más redondeados */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6); /* Sombra suave */
+}
+
+#restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restart-button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos del modal */
+.modal1 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal1-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.jugar{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #fc2a05;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#restart-button, #win-restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #fc2a05;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restart-button:hover, #win-restart-button:hover {
+    background-color: #ff0404;
+}
+.modal-logo {
+    width: 200px;  /* Ajusta el tamaño de la imagen según necesites */
+    height: auto;  /* Mantener la proporción del logo */
+    margin-bottom: 20px;  /* Espacio debajo del logo */
+}
+
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 90vw;
+    }
+
+    #game-board {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas medianas */
+    }
+
+    .modal-content, .modal1-content {
+        padding: 30px;
+    }
+
+    .modal-logo {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100vw;
+        padding: 3px;
+    }
+
+    #game-board {
+        grid-template-columns: repeat(5, 1fr); /* 3 columnas en pantallas muy pequeñas */
+    }
+
+    .modal-logo,
+    .modal1-logo {
+        width: 200px;
+    }
+
+    .modal-content, .modal1-content {
+        padding: 5px;
+        
+    }
+    
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.corazon {
+    width: 50px; /* Ajusta el tamaño del corazón */
+    animation: none; /* Sin animación por defecto */
+}
+
+.corazon.pulsar {
+    animation: pulse 0.5s ease; /* Aplicar la animación al corazón */
+}
+
+
+/* Estilos generales para dispositivos grandes */
+.modalinicio {
+    display: flex; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 999; 
+}
+
+.modal-content1 {
+    background-color: rgba(250, 225, 3, 0.938); /* Celeste con transparencia */
+    padding: 40px; 
+    border-radius: 15px; 
+    text-align: center; 
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6); 
+    max-width: 90%; 
+    max-height: 90%; 
+    overflow: auto; 
+    width: 40%; 
+    height: auto; 
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) { /* Para tablets y pantallas más pequeñas */
+    .modal-content,
+    .modal-content1 {
+        padding: 20px; /* Menos padding para dispositivos más pequeños */
+        max-width: 95%; /* Aumentar el ancho máximo para pantallas más pequeñas */
+        width: 90%; /* Ajustar el ancho para ser más responsivo */
+        border-radius: 10px; /* Bordes más redondeados */
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem; /* Tamaño de fuente más pequeño para el encabezado */
+    }
+
+    .modal-content p {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño para el párrafo */
+    }
+
+    #start-game-button {
+        padding: 8px 16px; /* Tamaño del botón más pequeño */
+        font-size: 0.9rem; /* Tamaño de fuente del botón */
+    }
+}
+
+@media (max-width: 480px) { /* Para smartphones */
+    .modal-content {
+        padding: 15px; /* Menor padding para smartphones */
+        width: 95%; /* Ajustar aún más el ancho */
+        max-width: 100%; /* Asegurar que el contenido no se desborde */
+    }
+
+    .modal-content h2 {
+        font-size: 1.3rem; /* Tamaño de fuente más pequeño para el encabezado */
+    }
+
+    .modal-content p {
+        font-size: 1.2rem; /* Tamaño de fuente más pequeño para el párrafo */
+    }
+
+    #start-game-button {
+        padding: 6px 12px; /* Tamaño del botón más pequeño */
+        font-size: 0.85rem; /* Tamaño de fuente del botón */
+    }
+}
+/* Estilo para el input de nombre */
+#player-name {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 80%; /* Ancho completo */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+#player-name:focus {
+    border-color: #ff5202; /* Cambia el borde a verde al enfocar */
+    outline: none; /* Eliminar el contorno predeterminado */
+}
+
