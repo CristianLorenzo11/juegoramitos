@@ -51,6 +51,7 @@ body {
     height: 100%;
 }
 .corazon {
+    
     padding-top: 10px;
     width: 40px; /* Ajusta el tamaño del corazón */
     height: auto; /* Mantiene la proporción de la imagen */
@@ -178,6 +179,7 @@ img {
     background-color: #ff0404;
 }
 .modal-logo {
+    border-radius: 0%;
     width: 200px;  /* Ajusta el tamaño de la imagen según necesites */
     height: auto;  /* Mantener la proporción del logo */
     margin-bottom: 20px;  /* Espacio debajo del logo */
